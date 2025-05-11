@@ -1,0 +1,114 @@
+<% layout("/layouts/boilerPlate") %>
+
+    <body>
+        <div class="container mt-4">
+            <!-- Filter Bar and Tax Toggle Row -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <!-- Scrollable Filters -->
+                <div class="d-flex align-items-center overflow-auto gap-4" style="white-space: nowrap;">
+                    <div class="text-center">
+                        <i class="fas fa-mountain fa-lg"></i><br>
+                        <span class="small">Mountain</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fa fa-snowflake fa-lg"></i><br>
+                        <span class="small">Snow</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-swimmer fa-lg"></i><br>
+                        <span class="small">Amazing pools</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-mountain fa-lg"></i><br>
+                        <span class="small">Mountain</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fa fa-snowflake fa-lg"></i><br>
+                        <span class="small">Snow</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-swimmer fa-lg"></i><br>
+                        <span class="small">Amazing pools</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-mountain fa-lg"></i><br>
+                        <span class="small">Mountain</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fa fa-snowflake fa-lg"></i><br>
+                        <span class="small">Snow</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-swimmer fa-lg"></i><br>
+                        <span class="small">Amazing pools</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-tractor fa-lg"></i><br>
+                        <span class="small">Farms</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-umbrella-beach fa-lg"></i><br>
+                        <span class="small">Beachfront</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-mountain-sun fa-lg"></i><br>
+                        <span class="small">Top of the world</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-home fa-lg"></i><br>
+                        <span class="small">Cabins</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-building fa-lg"></i><br>
+                        <span class="small">Mansions</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-tree fa-lg"></i><br>
+                        <span class="small">Treehouses</span>
+                    </div>
+                </div>
+
+                <!-- Permanent Tax Toggle -->
+                <div class="form-check form-switch d-flex align-items-center ms-3">
+                    <input class="form-check-input me-2" type="checkbox" id="taxSwitch">
+                    <label class="form-check-label" for="taxSwitch">
+                        <i class="fas fa-percent me-1"></i> Tax
+                    </label>
+                </div>
+            </div>
+
+            <!-- Listings Section (outside filter bar) -->
+            <div class="row">
+                <% if (allListings.length===0) { %>
+                    <div class="alert alert-warning text-center">
+                        No listings found for your search.
+                    </div>
+                    <% } else { %>
+                        <% for (let listing of allListings) { %>
+                            <div class="col-12 col-sm-6 col-md-4 mb-4">
+                                <a href="/listings/<%= listing._id %>" class="text-decoration-none text-dark">
+                                    <div class="card h-100">
+                                        <img src="<%= listing.image.url %>" class="card-img-top"
+                                            alt="<%= listing.title %>" style="height: 20rem;">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                <b>
+                                                    <%= listing.title %>
+                                                </b><br>
+                                                &#8377;
+                                                <span class="listing-price" data-base-price="<%= listing.price %>">
+                                                    <%= listing.price.toLocaleString("en-IN") %>
+                                                </span> / night
+                                                <span class="tax-note text-success" style="display: none;">+ 18%
+                                                    GST</span>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <% } %>
+                                <% } %>
+            </div>
+        </div>
+    </body>

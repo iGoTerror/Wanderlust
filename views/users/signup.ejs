@@ -1,0 +1,40 @@
+<% layout("/layouts/boilerPlate", { page: "signup" }) %>
+
+    <body>
+        <div class="container m-5">
+            <h3 class="mb-4">Create an Account</h3>
+
+            <form method="POST" action="/signup" novalidate class="needs-validation">
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control w-75" id="username" name="username"
+                        placeholder="Enter Username" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please enter a username.</div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control w-75" id="email" name="email" placeholder="Enter Email"
+                        required>
+                    <div class="valid-feedback">Valid email!</div>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control w-75" id="password" name="password"
+                        placeholder="Enter Password" required>
+                    <div class="valid-feedback">Strong password!</div>
+                    <div class="invalid-feedback">Please enter a password.</div>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-danger">Sign Up</button>
+            </form>
+        </div>
+    </body>

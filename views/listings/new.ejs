@@ -1,0 +1,79 @@
+<% layout("/layouts/boilerPlate") %>
+
+    <body>
+        <div class="container m-5">
+            <h3 class="mb-4">Create a New Listing</h3>
+
+            <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+                <!-- Title -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control w-75" id="title" name="listing[title]"
+                        placeholder="Enter Title" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please enter a title.</div>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="listing[description]" rows="4"
+                        placeholder="Enter Description" required></textarea>
+                    <div class="valid-feedback">Perfect!</div>
+                    <div class="invalid-feedback">Please enter a description.</div>
+                </div>
+
+                <!-- Image Upload -->
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input type="file" class="form-control" id="image" name="listing[image]" required>
+                    <div class="valid-feedback">Image uploaded!</div>
+                    <div class="invalid-feedback">Please upload an image.</div>
+                </div>
+
+                <!-- Price & Country -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="price" name="listing[price]"
+                            placeholder="Enter Price" required>
+                        <div class="valid-feedback">Valid price!</div>
+                        <div class="invalid-feedback">Please enter a valid price.</div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" class="form-control" id="country" name="listing[country]"
+                            placeholder="Enter Country" required>
+                        <div class="valid-feedback">Nice choice!</div>
+                        <div class="invalid-feedback">Please enter a country name.</div>
+                    </div>
+                </div>
+
+                <!-- Location, Latitude & Longitude -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" name="listing[location]"
+                            placeholder="Enter Location" required>
+                        <div class="valid-feedback">Great!</div>
+                        <div class="invalid-feedback">Please enter a location.</div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="lat" class="form-label">Latitude</label>
+                        <input type="text" class="form-control" id="latitude" name="listing[latitude]"
+                            placeholder="e.g., 19.0760" required>
+                        <div class="invalid-feedback">Please enter latitude.</div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="lng" class="form-label">Longitude</label>
+                        <input type="text" class="form-control" id="longitude" name="listing[longitude]"
+                            placeholder="e.g., 72.8777" required>
+                        <div class="invalid-feedback">Please enter longitude.</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-danger">Add</button>
+            </form>
+        </div>
+    </body>
