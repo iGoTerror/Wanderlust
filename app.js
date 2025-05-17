@@ -84,9 +84,16 @@ app.use((req, res, next) => {
     next();
 });
 
+
+app.get('/', (req, res) => {
+    res.redirect('/listings');
+});
+
+
+app.use("/", userRoutes);
 app.use("/listings", listingRoutes);
 app.use("/listings/:id/reviews", reviewRoutes);
-app.use("/", userRoutes);
+
 
 // Handle all unknown routes
 app.all('*', (req, res, next) => {
